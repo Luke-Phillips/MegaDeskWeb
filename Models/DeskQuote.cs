@@ -50,7 +50,7 @@ namespace MegaDeskWeb.Models
         }
 
         private decimal quotePrice = -1;
-
+/*
         //Default Contructor
         public DeskQuote()
         {
@@ -118,7 +118,7 @@ namespace MegaDeskWeb.Models
         //Get the Shipping Price
         private decimal getShippingPrice()
         {
-            /*  
+            *//*  
             Shipping Price Array Visualization Default Price
 
             |Shipping |     Size of Desk (in^2)           |
@@ -128,7 +128,7 @@ namespace MegaDeskWeb.Models
             | 3 Day   |    $ 60   |    $ 70   |    $ 80   |
             | 5 Day   |    $ 40   |    $ 50   |    $ 60   |
             | 7 Day   |    $ 30   |    $ 35   |    $ 40   |
-*/
+*//*
             int[,] shippingPrices;
 
             //call the methodo to read the file
@@ -142,3 +142,4 @@ namespace MegaDeskWeb.Models
         }
     }
 }
+*/
