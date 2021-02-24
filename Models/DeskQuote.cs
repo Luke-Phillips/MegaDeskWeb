@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+/*using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;*/
 
 namespace MegaDeskWeb.Models
 {
@@ -26,6 +27,7 @@ namespace MegaDeskWeb.Models
         // Standard Properties
         public string CustomerName { get; set; }
         public decimal ShippingPrice { get; set; }
+        [DataType(DataType.Date)]
         public DateTime QuoteDate { get; set; }
 
 
