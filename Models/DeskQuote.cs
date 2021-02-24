@@ -17,7 +17,7 @@ namespace MegaDeskWeb.Models
         private const decimal BASE_PRICE = 200;
         private const decimal DRAWER_PRICE = 50;
         private const decimal MAX_FREE_SURFACE_AREA = 50;
-        
+
         // Database Key Properties
         public int DeskQuoteId { get; set; }
         public int DeskId { get; set; }
@@ -32,6 +32,8 @@ namespace MegaDeskWeb.Models
         // Navigation Properties
         public Desk Desk { get; set; }
         public RushOrderOption RushOrderOption { get; set; }
+    }
+}
 
 /*
         //Call the quote price caculation
