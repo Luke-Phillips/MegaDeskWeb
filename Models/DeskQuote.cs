@@ -33,7 +33,7 @@ namespace MegaDeskWeb.Models
         public Desk Desk { get; set; }
         public RushOrderOption RushOrderOption { get; set; }
 
-
+/*
         //Call the quote price caculation
         public decimal QuotePrice
         {
@@ -50,7 +50,7 @@ namespace MegaDeskWeb.Models
         }
 
         private decimal quotePrice = -1;
-/*
+
         //Default Contructor
         public DeskQuote()
         {
