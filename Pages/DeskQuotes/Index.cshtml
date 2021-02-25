@@ -14,40 +14,33 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].CustomerName)
+                @Html.DisplayNameFor(model => model.DeskQuotes[0].QuoteDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].ShippingPrice)
+                @Html.DisplayNameFor(model => model.DeskQuotes[0].CustomerName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
+                @Html.DisplayNameFor(model => model.DeskQuotes[0].Desk)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].Desk)
+                @Html.DisplayNameFor(model => model.DeskQuotes[0].QuotePrice)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeskQuote[0].RushOrderOption)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.DeskQuote) {
+@foreach (var item in Model.DeskQuotes) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShippingPrice)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.QuoteDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Desk.DeskId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RushOrderOption.RushOrderOptionId)
+                @Html.DisplayFor(modelItem => item.QuotePrice)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.DeskQuoteId">Edit</a> |

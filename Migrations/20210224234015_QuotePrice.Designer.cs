@@ -4,14 +4,16 @@ using MegaDeskWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MegaDeskWeb.Migrations
 {
     [DbContext(typeof(MegaDeskWebContext))]
-    partial class MegaDeskWebContextModelSnapshot : ModelSnapshot
+    [Migration("20210224234015_QuotePrice")]
+    partial class QuotePrice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +72,7 @@ namespace MegaDeskWeb.Migrations
                     b.Property<int>("RushOrderOptionId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("RushOrderPrice")
+                    b.Property<decimal>("ShippingPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("DeskQuoteId");

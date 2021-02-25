@@ -30,12 +30,14 @@ namespace MegaDeskWeb.Models
         public decimal Depth { get; set; }    
 
         [Range(MIN_WIDTH * MIN_DEPTH, MAX_WIDTH * MAX_DEPTH)]
-        public decimal SurfaceArea { get; set; }     
+        public decimal SurfaceArea { get; set; }
 
+        [Display(Name = "Number of Drawers")]
         [Range(MIN_DRAWERS, MAX_DRAWERS)]
         public int NumberOfDrawers { get; set; }
 
         // Navigation Properties
+        [Display(Name = "Desktop Surface Material")]
         public DesktopSurfaceMaterial DesktopSurfaceMaterial { get; set; }
     }
 }

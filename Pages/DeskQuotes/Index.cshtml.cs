@@ -19,11 +19,11 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             _context = context;
         }
 
-        public IList<DeskQuote> DeskQuote { get;set; }
+        public IList<DeskQuote> DeskQuotes { get;set; }
 
         public async Task OnGetAsync()
         {
-            DeskQuote = await _context.DeskQuote
+            DeskQuotes = await _context.DeskQuote
                 .Include(d => d.Desk)
                 .Include(d => d.RushOrderOption).ToListAsync();
         }
