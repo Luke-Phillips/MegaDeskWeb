@@ -22,7 +22,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         public IActionResult OnGet()
         {
             //IList<DeskQuote> queryResult = _context.DeskQuote.Include()
-            ViewData["RushOrderOptionId"] = new SelectList(_context.Set<RushOrderOption>(), "RushOrderOptionId", "RushOrderOptionId");
+            ViewData["RushOrderOptionId"] = new SelectList(_context.Set<RushOrderOption>(), "RushOrderOptionId", "Option");
             ViewData["DesktopSurfaceMaterialId"] = new SelectList(_context.Set<DesktopSurfaceMaterial>(), "DesktopSurfaceMaterialId", "Name");
             return Page();
         }

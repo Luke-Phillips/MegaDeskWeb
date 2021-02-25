@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="DeskQuote.RushOrderOption" class="control-label"></label>
-                    <input asp-for="DeskQuote.RushOrderOption" class="form-control"/>
+                    <select asp-for="DeskQuote.RushOrderOption" class="form-control" asp-items="ViewBag.RushOrderOptionId"></select>
                 </div>
             </div>
             <div>

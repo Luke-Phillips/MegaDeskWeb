@@ -1,44 +1,95 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MegaDeskWeb.Data;
+using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MegaDeskWeb.Models
 {
     public class SeedData
     {
-        /*public static void Initialize(IServiceProvider serviceProvider)
+        public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new MyScriptureJournalContext(
+            using (var context = new MegaDeskWebContext(
                 serviceProvider.GetRequiredService<
-                    DbContextOptions<MyScriptureJournalContext>>()))
+                    DbContextOptions<MegaDeskWebContext>>()))
             {
-                // Look for any movies.
-                if (context.ScriptureJournalEntry.Any())
+                // Look for any desktop surface materials
+                if (context.DesktopSurfaceMaterial.Any())
                 {
-                    return;   // DB has been seeded
+                    return;   // Table has been seeded
+                }
+                else
+                {
+                    context.DesktopSurfaceMaterial.AddRange(
+                        new DesktopSurfaceMaterial
+                        {
+                            Name = "Pine",
+                            Cost = 50
+                        },
+                        new DesktopSurfaceMaterial
+                        {
+                            Name = "Laminate",
+                            Cost = 100
+                        },
+                        new DesktopSurfaceMaterial
+                        {
+                            Name = "Veneer",
+                            Cost = 125
+                        },
+                        new DesktopSurfaceMaterial
+                        {
+                            Name = "Oak",
+                            Cost = 200
+                        },
+                        new DesktopSurfaceMaterial
+                        {
+                            Name = "Rosewood",
+                            Cost = 300
+                        }
+                    );
                 }
 
-                context.ScriptureJournalEntry.AddRange(
-                    new ScriptureJournalEntry
-                    {
-                        Date = DateTime.Now,
-                        Book = "1 Nephi",
-                        Chapter = "1",
-                        Verse = "1",
-                        Note = "Despite having many afflictions in his life, Nephi feels blessed and grateful"
-                    },
-                    new ScriptureJournalEntry
-                    {
-                        Date = DateTime.Now,
-                        Book = "John",
-                        Chapter = "3",
-                        Verse = "16",
-                        Note = "For God so loved the world... a classic"
-                    }
-                );
+                // Look for any rush order options
+                if (context.RushOrderOption.Any())
+                {
+                    return;   // Table has been seeded
+                }
+                else
+                {
+                    context.RushOrderOption.AddRange(
+                        new RushOrderOption
+                        {
+                            Option = "14 day",
+                            CostSmall = 0,
+                            CostMedium = 0,
+                            CostLarge = 0
+                        },
+                        new RushOrderOption
+                        {
+                            Option = "7 day",
+                            CostSmall = 30,
+                            CostMedium = 35,
+                            CostLarge = 40
+                        },
+                        new RushOrderOption
+                        {
+                            Option = "5 day",
+                            CostSmall = 40,
+                            CostMedium = 50,
+                            CostLarge = 60
+                        },
+                        new RushOrderOption
+                        {
+                            Option = "3 day",
+                            CostSmall = 60,
+                            CostMedium = 70,
+                            CostLarge = 80
+                        }
+                    );
+                }
                 context.SaveChanges();
             }
-        }*/
+        }
     }
 }

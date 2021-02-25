@@ -15,5 +15,7 @@ namespace MegaDeskWeb.Data
         }
 
         public DbSet<MegaDeskWeb.Models.DeskQuote> DeskQuote { get; set; }
+        public DbSet<MegaDeskWeb.Models.DesktopSurfaceMaterial> DesktopSurfaceMaterial { get; set; }
+        public DbSet<MegaDeskWeb.Models.RushOrderOption> RushOrderOption { get; set; }
     }
 }
