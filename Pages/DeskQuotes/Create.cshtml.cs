@@ -85,10 +85,16 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             return rushPrice;
         }
 
+        //Determine the surface price
+
         //Determine the quote price of the quoteCreated
         private decimal getQuoteTotal()
         {
-            decimal basePrice = DeskQuote.
+            decimal basePrice = DeskQuote.BASE_PRICE;
+            decimal drawPrice = DeskQuote.Desk.NumberOfDrawers * DeskQuote.DRAWER_PRICE;
+            decimal surfacePrice = 0;
+
+            return 0;
 
         }
 
