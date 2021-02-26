@@ -29,7 +29,7 @@ namespace MegaDeskWeb.Models
         [Range(MIN_DEPTH, MAX_DEPTH)]
         public decimal Depth { get; set; }    
  
-        [Display(Name = "Desktop Square Inches")]
+        [Display(Name = "Square Inches")]
         public decimal SurfaceArea { get; set; }
 
         [Display(Name = "Number of Drawers")]
