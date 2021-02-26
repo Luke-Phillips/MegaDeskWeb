@@ -160,3 +160,23 @@ table thead {
     color: lightgreen;
 }
 
+/*********************Edit page*/
+
+.edit_page_container {
+    width: 300px;
+    margin: 30px auto 20px;
+    border: 2px solid #eee;
+    box-shadow: 0 1px 3px #98FB98;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
+.myForm {
+    text-align: left;
+}
+
+.bottomLine {
+    margin-bottom: 50px;
+}
