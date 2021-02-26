@@ -26,17 +26,22 @@ namespace MegaDeskWeb.Models
 
         // Standard Properties
         [DataType(DataType.Date)]
+        [Display(Name = "Date")]
         public DateTime QuoteDate { get; set; }
         
-        [Display(Name ="Customer Name")]
+        [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
 
         public decimal RushOrderPrice { get; set; }
 
+        [Display(Name = "Quote Price")]
+        [DataType(DataType.Currency)]
         public decimal QuotePrice { get; set; }
 
         // Navigation Properties
         public Desk Desk { get; set; }
+
+        [Display(Name = "Rush Order Option")]
         public RushOrderOption RushOrderOption { get; set; }
     }
 }
