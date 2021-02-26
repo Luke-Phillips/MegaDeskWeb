@@ -11,8 +11,9 @@
 
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-outline-success"><i class="fa fa-plus-square"></i> Add New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -32,7 +33,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model.DeskQuotes) {
-        <tr>
+        <tr class="quote_list_unit">
             <td>
                 @Html.DisplayFor(modelItem => item.QuoteDate)
             </td>
@@ -45,10 +46,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.QuotePrice)
             </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.DeskQuoteId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.DeskQuoteId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.DeskQuoteId">Delete</a>
+            <td class="quotes_options">
+                <a asp-page="./Edit" asp-route-id="@item.DeskQuoteId"><span class="glyphicon glyphicon-pencil"></span></a> |
+                <a asp-page="./Details" asp-route-id="@item.DeskQuoteId"><span class="glyphicon glyphicon-th-list"></span></a> |
+                <a asp-page="./Delete" asp-route-id="@item.DeskQuoteId"><span class="glyphicon glyphicon-trash"></span></a>
             </td>
         </tr>
 }

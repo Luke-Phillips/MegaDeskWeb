@@ -109,3 +109,35 @@ body {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
 }
+
+.quote_list_unit {
+}
+
+.quotes_options a .glyphicon {
+    font-size: 20px;
+}
+
+.quotes_options a .glyphicon-trash {
+    color: red;
+}
+
+.quotes_options a .glyphicon-th-list {
+    color: blue;
+}
+
+.quotes_options a .glyphicon-pencil {
+    color: green;
+}
+
+.quotes_options a .glyphicon-trash:hover{
+    color: salmon;
+}
+
+.quotes_options a .glyphicon-th-list:hover {
+    color: lightsteelblue;
+}
+
+.quotes_options a .glyphicon-pencil:hover {
+    color: lightgreen;
+}
+
