@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MegaDeskWeb</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="icon" href="~/pics/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">
-                    <img id="logoTop" src="./pics/Logotop.png" alt="Logo">
+                    <img id="logoTop" src="~/pics/Logotop.png" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -22,10 +25,26 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="links">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">                        
+                                 @if(Convert.ToString(ViewData["Title"]) == "Home Page"){ 
+                                    <span style="color: green;">Home</span>
+                                 } else
+                                 {
+                                     <span>Home</span>
+                                 }
+                             </a>
                         </li>
                         <li class="links">
-                            <a class="nav-link text-dark" asp-area="" asp-page="./DeskQuotes/Index">Desk Quotes</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="./DeskQuotes/Index">
+                                @if (Convert.ToString(ViewData["Title"]) != "Home Page")
+                                {
+                                    <span style="color: green;">Desk Quotes</span>
+                                }
+                                else
+                                {
+                                    <span>Desk Quotes</span>
+                                }                             
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -40,8 +59,8 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            <span><a href="https://github.com/Luke-Phillips/MegaDeskWeb"><img id="socialMedia" src="./pics/github-icon-11.jpg" alt="socialMedia"></a></span>
-            &copy; 2021 - MegaDeskWeb Developers: Filipe & Luke
+            <span><a href="https://github.com/Luke-Phillips/MegaDeskWeb"><img id="socialMedia" src="~/pics/github-icon-11.jpg" alt="socialMedia"></a></span>
+            &copy; 2021 Developers: Filipe & Luke
         </div>
     </footer>
 

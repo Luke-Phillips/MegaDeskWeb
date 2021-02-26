@@ -70,7 +70,7 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-/*------------------Personal Style*/
+/*------------------Personal Style---- Front Page and Nav bar*/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 #frontPic {
@@ -79,6 +79,9 @@ body {
    
 }
 
+#logoTop {
+    margin-top: -8px
+}
 #socialMedia {
     height: 40px;
     width: 40px;
@@ -95,5 +98,81 @@ body {
 }
 
 .navbar .container .navbar-collapse a:hover {
-        color: green !important;
-    }
+    color: grey!important;
+}
+
+/***************************************Desquotes Indezx*/
+
+.presentationBox {
+    width: 60%;
+    margin: 30px auto 20px;
+    border: 2px solid #eee;
+    box-shadow: 0 1px 3px #98FB98;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
+.btnArea a{
+    font-size: 17px;
+}
+
+table thead {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17.5px;
+    font-weight: bolder;
+}
+
+.quote_list_unit td {
+    font-size: 16px;
+}
+
+.quotes_options a .glyphicon {
+    font-size: 20px;
+}
+
+.quotes_options a .glyphicon-trash {
+    color: red;
+}
+
+.quotes_options a .glyphicon-th-list {
+    color: blue;
+}
+
+.quotes_options a .glyphicon-pencil {
+    color: green;
+}
+
+.quotes_options a .glyphicon-trash:hover{
+    color: salmon;
+}
+
+.quotes_options a .glyphicon-th-list:hover {
+    color: lightsteelblue;
+}
+
+.quotes_options a .glyphicon-pencil:hover {
+    color: lightgreen;
+}
+
+/*********************Edit page*/
+
+.edit_page_container {
+    width: 300px;
+    margin: 30px auto 20px;
+    border: 2px solid #eee;
+    box-shadow: 0 1px 3px #98FB98;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
+.myForm {
+    text-align: left;
+}
+
+.bottomLine {
+    margin-bottom: 50px;
+}
