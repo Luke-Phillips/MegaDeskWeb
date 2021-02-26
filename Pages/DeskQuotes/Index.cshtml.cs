@@ -19,7 +19,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             _context = context;
         }
 
-        public IList<DeskQuote> DeskQuotes { get;set; }
+        public IList<DeskQuote> DeskQuotes { get; set; }
 
         public async Task OnGetAsync()
         {
