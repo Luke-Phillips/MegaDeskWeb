@@ -28,11 +28,13 @@ namespace MegaDeskWeb.Models
         [DataType(DataType.Date)]
         public DateTime QuoteDate { get; set; }
         
-        [Display(Name ="Customer Name")]
+        [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
 
         public decimal RushOrderPrice { get; set; }
 
+        [Display(Name = "Quote Price")]
+        [DataType(DataType.Currency)]
         public decimal QuotePrice { get; set; }
 
         // Navigation Properties
