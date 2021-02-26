@@ -15,9 +15,9 @@ namespace MegaDeskWeb.Models
     public class DeskQuote
     {
         // Requirement-based prices
-        private const decimal BASE_PRICE = 200;
-        private const decimal DRAWER_PRICE = 50;
-        private const decimal MAX_FREE_SURFACE_AREA = 50;
+        public const decimal BASE_PRICE = 200;
+        public const decimal DRAWER_PRICE = 50;
+        public const decimal MAX_FREE_SURFACE_AREA = 50;
 
         // Database Key Properties
         public int DeskQuoteId { get; set; }

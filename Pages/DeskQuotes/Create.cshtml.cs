@@ -43,7 +43,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             DeskQuote.RushOrderPrice = getRushOrderPrice();
 
             //Set the QuotePrice
-            DeskQuote.QuotePrice = 0;
+            DeskQuote.QuotePrice = getQuoteTotal();
 
             Console.WriteLine("on post");
             if (!ModelState.IsValid)
@@ -85,7 +85,12 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             return rushPrice;
         }
 
-        //Determine the quote price
+        //Determine the quote price of the quoteCreated
+        private decimal getQuoteTotal()
+        {
+            decimal basePrice = DeskQuote.
+
+        }
 
 
 
