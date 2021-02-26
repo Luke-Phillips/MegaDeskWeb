@@ -31,18 +31,33 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             DeskQuotes = await _context.DeskQuote
                 .Include(d => d.Desk)
                 .Include(d => d.RushOrderOption).ToListAsync();
-            
-            if (!string.IsNullOrEmpty(Material))
-            {
-                Console.WriteLine("DeskQuotes is: " + DeskQuotes.ToString());
-                //Console.WriteLine("DeskQuotes is: " + DeskQuotes.ToString());
-                DeskQuotes = DeskQuotes.Where(d => d.Desk.DesktopSurfaceMaterial.Name == Material).ToList();
-            }
 
+            //Populate the list of material in the user search
             IQueryable<string> materialQuery = from m in _context.DesktopSurfaceMaterial
                                                select m.Name;
 
             Materials = new SelectList(await materialQuery.Distinct().ToListAsync());
+
+            //Create a Queryble for the list material TB
+            IQueryable<DesktopSurfaceMaterial> materialDB = from m in _context.DesktopSurfaceMaterial
+                                                            select m;
+
+            //Create a Queryble for the list of DeskQuotes
+            IQueryable<DeskQuote> deskQuoteDB = from m in _context.DeskQuote
+                                                            select m;
+
+            //Find the searched material
+            if (!string.IsNullOrEmpty(Material))
+            {
+                //Get the material searched id
+                var surfaceMaterial = materialDB.Where(p => p.Name == Material).ToList<DesktopSurfaceMaterial>();
+                int searched = surfaceMaterial[0].DesktopSurfaceMaterialId;
+
+                DeskQuotes = deskQuoteDB.Where(p => p.Desk.DesktopSurfaceMaterialId == searched).ToList<DeskQuote>();
+
+            }
+
+            
         }
     }
 }

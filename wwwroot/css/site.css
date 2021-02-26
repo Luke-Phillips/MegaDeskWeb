@@ -176,3 +176,11 @@ table thead {
 .bottomLine {
     margin-bottom: 50px;
 }
+
+.btnArea {
+    display: flex;
+}
+
+.form-control {
+    width: 80px;
+}
