@@ -6,22 +6,25 @@
     <title>@ViewData["Title"] - MegaDeskWeb</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Mega Desk</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img id="logoTop" src="./pics/Logotop.png" alt="Logo">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="links">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="links">
                             <a class="nav-link text-dark" asp-area="" asp-page="./DeskQuotes/Index">Desk Quotes</a>
                         </li>
                     </ul>
@@ -37,7 +40,8 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - MegaDeskWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <span><a href="https://github.com/Luke-Phillips/MegaDeskWeb"><img id="socialMedia" src="./pics/github-icon-11.jpg" alt="socialMedia"></a></span>
+            &copy; 2021 - MegaDeskWeb Developers: Filipe & Luke
         </div>
     </footer>
 
