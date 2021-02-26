@@ -26,6 +26,7 @@ namespace MegaDeskWeb.Models
 
         // Standard Properties
         [DataType(DataType.Date)]
+        [Display(Name = "Date")]
         public DateTime QuoteDate { get; set; }
         
         [Display(Name = "Customer Name")]
@@ -39,6 +40,8 @@ namespace MegaDeskWeb.Models
 
         // Navigation Properties
         public Desk Desk { get; set; }
+
+        [Display(Name = "Rush Order Option")]
         public RushOrderOption RushOrderOption { get; set; }
     }
 }
