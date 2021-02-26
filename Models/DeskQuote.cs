@@ -30,7 +30,7 @@ namespace MegaDeskWeb.Models
         
         [Display(Name ="Customer Name")]
         public string CustomerName { get; set; }
-        
+
         public decimal RushOrderPrice { get; set; }
 
         public decimal QuotePrice { get; set; }

@@ -33,9 +33,16 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            DeskQuote.Desk.SurfaceArea = 300; // fix me
+            //Set the Surface Area
+            DeskQuote.Desk.setSurfaceArea();
+
+            //Set the Quote Date
             DeskQuote.QuoteDate = DateTime.Now;
-            DeskQuote.RushOrderPrice = 0;
+
+            //Get Rush Order Price
+            DeskQuote.RushOrderPrice = getRushOrderPrice();
+
+            //Set the QuotePrice
             DeskQuote.QuotePrice = 0;
 
             Console.WriteLine("on post");
@@ -51,5 +58,36 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
             return RedirectToPage("./Index");
         }
+
+        /// Determine the rush order Price
+        private decimal getRushOrderPrice()
+        {
+            //Access the RushOrderData to get the data
+            IQueryable<RushOrderOption> rushOrderQuery = from m in _context.RushOrderOption
+                                                         where m.RushOrderOptionId == DeskQuote.RushOrderOptionId
+                                                         select m;
+            //Save the result to a list
+            RushOrderOption rushOrderResult = rushOrderQuery.ToList<RushOrderOption>()[0];
+
+            //By default to the smallest value
+            decimal rushPrice = rushOrderResult.CostSmall;
+
+            //Get the aread to determine the cost based size
+            if (DeskQuote.Desk.SurfaceArea > 1000 && DeskQuote.Desk.SurfaceArea <= 2000)
+            {
+                rushPrice = rushOrderResult.CostMedium;
+            }
+            else if(DeskQuote.Desk.SurfaceArea > 2000)
+            {
+                rushPrice = rushOrderResult.CostSmall;
+            }
+
+            return rushPrice;
+        }
+
+        //Determine the quote price
+
+
+
     }
 }

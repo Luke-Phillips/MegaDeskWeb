@@ -15,8 +15,6 @@ namespace MegaDeskWeb.Models
         const double MIN_DEPTH = 12;
         const double MAX_WIDTH = 96;
         const double MIN_WIDTH = 24;
-        const double MIN_SURFACE_AREA = 288;
-        const double MAX_SURFACE_AREA = 4608;
         const int MIN_DRAWERS = 0;
         const int MAX_DRAWERS = 7;
 
@@ -40,5 +38,11 @@ namespace MegaDeskWeb.Models
         // Navigation Properties
         [Display(Name = "Desktop Surface Material")]
         public DesktopSurfaceMaterial DesktopSurfaceMaterial { get; set; }
+
+        //Set the SufaceArea
+        public void setSurfaceArea()
+        {
+            SurfaceArea = Width * Depth;
+        }
     }
 }
