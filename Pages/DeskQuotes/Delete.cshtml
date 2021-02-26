@@ -19,28 +19,40 @@
             @Html.DisplayFor(model => model.DeskQuote.CustomerName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.RushOrderPrice)
+            @Html.DisplayNameFor(model => model.DeskQuote.Desk.Width)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.RushOrderPrice)
+            @Html.DisplayFor(model => model.DeskQuote.Desk.Width)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.QuoteDate)
+            @Html.DisplayNameFor(model => model.DeskQuote.Desk.Depth)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.QuoteDate)
+            @Html.DisplayFor(model => model.DeskQuote.Desk.Depth)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.Desk)
+            @Html.DisplayNameFor(model => model.DeskQuote.Desk.SurfaceArea)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.Desk.DeskId)
+            @Html.DisplayFor(model => model.DeskQuote.Desk.SurfaceArea)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DeskQuote.RushOrderOption)
+            @Html.DisplayNameFor(model => model.DeskQuote.Desk.NumberOfDrawers)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DeskQuote.RushOrderOption.RushOrderOptionId)
+            @Html.DisplayFor(model => model.DeskQuote.Desk.NumberOfDrawers)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DeskQuote.Desk.DesktopSurfaceMaterial.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DeskQuote.Desk.DesktopSurfaceMaterial.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DeskQuote.QuotePrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DeskQuote.QuotePrice)
         </dd>
     </dl>
     

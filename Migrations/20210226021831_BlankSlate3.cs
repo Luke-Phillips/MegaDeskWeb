@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MegaDeskWeb.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class BlankSlate3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,10 @@ namespace MegaDeskWeb.Migrations
                 {
                     RushOrderOptionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Option = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Option = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CostSmall = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    CostMedium = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    CostLarge = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -65,9 +68,10 @@ namespace MegaDeskWeb.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DeskId = table.Column<int>(type: "int", nullable: false),
                     RushOrderOptionId = table.Column<int>(type: "int", nullable: false),
+                    QuoteDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ShippingPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    QuoteDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    RushOrderPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    QuotePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {

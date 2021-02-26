@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MegaDeskWeb.Migrations
 {
     [DbContext(typeof(MegaDeskWebContext))]
-    [Migration("20210225040310_test")]
-    partial class test
+    [Migration("20210226021831_BlankSlate3")]
+    partial class BlankSlate3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,6 +108,15 @@ namespace MegaDeskWeb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("CostLarge")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("CostMedium")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("CostSmall")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Option")
                         .HasColumnType("nvarchar(max)");
