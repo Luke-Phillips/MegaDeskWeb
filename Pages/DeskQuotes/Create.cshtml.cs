@@ -33,11 +33,19 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+            DeskQuote.Desk.SurfaceArea = 300; // fix me
+            DeskQuote.QuoteDate = DateTime.Now;
+            DeskQuote.RushOrderPrice = 0;
+            DeskQuote.QuotePrice = 0;
+
+            Console.WriteLine("on post");
             if (!ModelState.IsValid)
             {
+                Console.WriteLine("model state is not valid");
                 return Page();
             }
 
+            Console.WriteLine("model state is valid");
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
 

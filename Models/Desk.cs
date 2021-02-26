@@ -23,17 +23,17 @@ namespace MegaDeskWeb.Models
         public int DesktopSurfaceMaterialId { get; set; }
 
         // Standard Properties
-        [Range(MIN_WIDTH, MAX_WIDTH)]
+        //[Range(MIN_WIDTH, MAX_WIDTH)]
         public decimal Width { get; set; }
 
-        [Range(MIN_DEPTH, MAX_DEPTH)]
+        //[Range(MIN_DEPTH, MAX_DEPTH)]
         public decimal Depth { get; set; }    
 
-        [Range(MIN_WIDTH * MIN_DEPTH, MAX_WIDTH * MAX_DEPTH)]
+        //[Range(MIN_WIDTH * MIN_DEPTH, MAX_WIDTH * MAX_DEPTH)]
         public decimal SurfaceArea { get; set; }
 
         [Display(Name = "Number of Drawers")]
-        [Range(MIN_DRAWERS, MAX_DRAWERS)]
+        //[Range(MIN_DRAWERS, MAX_DRAWERS)]
         public int NumberOfDrawers { get; set; }
 
         // Navigation Properties
