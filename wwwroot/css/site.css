@@ -79,16 +79,12 @@ body {
    
 }
 
+#logoTop {
+    margin-top: -8px
+}
 #socialMedia {
     height: 40px;
     width: 40px;
-}
-
-#logoTop {
-    height: 40px;
-    margin-top: -10px;
-    margin-right: -25px;
-
 }
 
 .myLogo {
