@@ -22,10 +22,26 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="links">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">                        
+                                 @if(Convert.ToString(ViewData["Title"]) == "Home Page"){ 
+                                    <span style="color: green;">Home</span>
+                                 } else
+                                 {
+                                     <span>Home</span>
+                                 }
+                             </a>
                         </li>
                         <li class="links">
-                            <a class="nav-link text-dark" asp-area="" asp-page="./DeskQuotes/Index">Desk Quotes</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="./DeskQuotes/Index">
+                                @if (Convert.ToString(ViewData["Title"]) != "Home Page")
+                                {
+                                    <span style="color: green;">Desk Quotes</span>
+                                }
+                                else
+                                {
+                                    <span>Desk Quotes</span>
+                                }                             
+                            </a>
                         </li>
                     </ul>
                 </div>

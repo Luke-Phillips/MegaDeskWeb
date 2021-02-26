@@ -95,5 +95,6 @@ body {
 }
 
 .navbar .container .navbar-collapse a:hover {
-        color: green !important;
-    }
+    color: grey!important;
+}
+
