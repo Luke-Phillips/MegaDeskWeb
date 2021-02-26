@@ -86,19 +86,33 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         }
 
         //Determine the surface price
+        private decimal getSurfacePrice()
+        {
+            //Access the RushOrderData to get the data
+            IQueryable<DesktopSurfaceMaterial> material = from m in _context.DesktopSurfaceMaterial
+                                                         where m.DesktopSurfaceMaterialId == DeskQuote.Desk.DesktopSurfaceMaterialId
+                                                         select m;
+            //Save result
+            decimal materialCost = material.ToList<DesktopSurfaceMaterial>()[0].Cost;
+
+            //On the top of that + surface are for 1 dollar for every over 1000
+            decimal extraCost = DeskQuote.Desk.SurfaceArea > DeskQuote.MAX_FREE_SURFACE_AREA ?
+                DeskQuote.Desk.SurfaceArea - DeskQuote.MAX_FREE_SURFACE_AREA : 0;
+
+            return materialCost + extraCost;
+
+        }
 
         //Determine the quote price of the quoteCreated
         private decimal getQuoteTotal()
         {
+            //Set some base prices to use in the quote
             decimal basePrice = DeskQuote.BASE_PRICE;
             decimal drawPrice = DeskQuote.Desk.NumberOfDrawers * DeskQuote.DRAWER_PRICE;
-            decimal surfacePrice = 0;
+            decimal surfacePrice = getSurfacePrice();
+            decimal shippingPrice = DeskQuote.RushOrderPrice;
 
-            return 0;
-
+            return basePrice + drawPrice + surfacePrice + shippingPrice;
         }
-
-
-
     }
 }
