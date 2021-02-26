@@ -98,3 +98,14 @@ body {
     color: grey!important;
 }
 
+/***************************************Desquotes Indezx*/
+
+.presentationBox {
+    width: 60%;
+    margin: 30px auto 20px;
+    border: 2px solid #eee;
+    box-shadow: 0 1px 3px #98FB98;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
