@@ -10,17 +10,19 @@
 </div>
 
 
-<p class="btnArea">
-    <a asp-page="Create" class="btn btn-outline-success"><i class="fa fa-plus-square"></i> Add New</a>
-</p>
-<form>
-    <p>
-        <select asp-for="Material" asp-items="ViewBag.">
+<div style="display: flex">
+    <div>
+        <p class="btnArea">
+            <a asp-page="Create" class="btn btn-outline-success"><i class="fa fa-plus-square"></i> Add New</a>
+        </p>
+    </div>
+    <form style="display: flex">
+        <select asp-for="Material" asp-items="Model.Materials" class="form-control" style="width: 100px; margin-left: 10px;">
             <option value="">All</option>
-        </select>   
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+        </select>
+        <button type="submit" value="Filter" class="btn btn-outline-success" style="margin-left: 10px;"><span class="glyphicon glyphicon-search"></span> Filter</button>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
