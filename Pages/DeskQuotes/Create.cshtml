@@ -16,31 +16,31 @@
             <!-- Put a header or paragraph here "Order Details"-->
             <div class="form-group">
                 <label asp-for="DeskQuote.CustomerName" class="control-label"></label>
-                <input asp-for="DeskQuote.CustomerName" class="form-control" />
+                <input asp-for="DeskQuote.CustomerName" class="form-control" required/>
                 <span asp-validation-for="DeskQuote.CustomerName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.RushOrderOption" class="control-label"></label>
-                <select asp-for="DeskQuote.RushOrderOptionId" class="form-control" asp-items="ViewBag.RushOrderOptionId"></select>
+                <select asp-for="DeskQuote.RushOrderOptionId" class="form-control" asp-items="ViewBag.RushOrderOptionId" required></select>
             </div>
         </div>
         <div>
             <!-- Put a header or paragraph here "Desk Details"-->
             <div class="form-group">
                 <label asp-for="DeskQuote.Desk.Width" class="control-label"></label>
-                <input asp-for="DeskQuote.Desk.Width" class="form-control" />
+                <input asp-for="DeskQuote.Desk.Width" class="form-control" min="24" max="96" required/>
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Desk.Depth" class="control-label"></label>
-                <input asp-for="DeskQuote.Desk.Depth" class="form-control" />
+                <input asp-for="DeskQuote.Desk.Depth" class="form-control" min="12" max="44" required/>
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Desk.NumberOfDrawers" class="control-label"></label>
-                <input asp-for="DeskQuote.Desk.NumberOfDrawers" class="form-control" />
+                <input asp-for="DeskQuote.Desk.NumberOfDrawers" class="form-control" required/>
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Desk.DesktopSurfaceMaterial" class="control-label"></label>
-                <select asp-for="DeskQuote.Desk.DesktopSurfaceMaterialId" class="form-control" asp-items="ViewBag.DesktopSurfaceMaterialId"></select>
+                <select asp-for="DeskQuote.Desk.DesktopSurfaceMaterialId" class="form-control" asp-items="ViewBag.DesktopSurfaceMaterialId" required></select>
             </div>
         </div>
         <div class="form-group">

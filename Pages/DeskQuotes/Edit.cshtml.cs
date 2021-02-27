@@ -37,8 +37,6 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 return NotFound();
             }
 
-            Console.WriteLine("--------------------Quote Date onGet: " + DeskQuote.QuoteDate + "--------------------");
-
             ViewData["RushOrderOptionId"] = new SelectList(_context.Set<RushOrderOption>(), "RushOrderOptionId", "Option");
             ViewData["DesktopSurfaceMaterialId"] = new SelectList(_context.Set<DesktopSurfaceMaterial>(), "DesktopSurfaceMaterialId", "Name");
             return Page();
@@ -56,13 +54,12 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             // Set the Surface Area
             DeskQuote.Desk.setSurfaceArea();
 
+            // Set the Quote Date
+            DeskQuote.QuoteDate = DateTime.Now;
+
             // Set the QuotePrice
             DeskQuote.QuotePrice = DeskQuote.getQuoteTotal(_context);
 
-            Console.WriteLine("--------------------Quote Date onPost: " + DeskQuote.QuoteDate + "--------------------");
-            // Why is the date changing *cry face*
-            // Set the QuoteDate
-            //DeskQuote.QuoteDate = DeskQuote.QuoteDate;
 
             _context.Attach(DeskQuote).State = EntityState.Modified;
 
