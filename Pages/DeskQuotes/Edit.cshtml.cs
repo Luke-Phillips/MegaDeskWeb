@@ -38,8 +38,9 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             {
                 return NotFound();
             }
-           ViewData["DeskId"] = new SelectList(_context.Set<Desk>(), "DeskId", "DeskId");
-           ViewData["RushOrderOptionId"] = new SelectList(_context.Set<RushOrderOption>(), "RushOrderOptionId", "RushOrderOptionId");
+
+            ViewData["RushOrderOptionId"] = new SelectList(_context.Set<RushOrderOption>(), "RushOrderOptionId", "Option");
+            ViewData["DesktopSurfaceMaterialId"] = new SelectList(_context.Set<DesktopSurfaceMaterial>(), "DesktopSurfaceMaterialId", "Name");
             return Page();
         }
 
