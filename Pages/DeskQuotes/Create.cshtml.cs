@@ -32,17 +32,14 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            //Set the Surface Area
+            // Set the Surface Area
             DeskQuote.Desk.setSurfaceArea();
 
-            //Set the Quote Date
+            // Set the Quote Date
             DeskQuote.QuoteDate = DateTime.Now;
 
-            //Get Rush Order Price
-            DeskQuote.RushOrderPrice = getRushOrderPrice();
-
-            //Set the QuotePrice
-            DeskQuote.QuotePrice = getQuoteTotal();
+            // Set the QuotePrice
+            DeskQuote.QuotePrice = DeskQuote.getQuoteTotal(_context);            
 
             Console.WriteLine("on post");
             if (!ModelState.IsValid)
@@ -58,7 +55,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             return RedirectToPage("./Index");
         }
 
-        /// Determine the rush order Price
+        /*/// Determine the rush order Price
         private decimal getRushOrderPrice()
         {
             //Access the RushOrderData to get the data
@@ -112,6 +109,6 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             decimal shippingPrice = DeskQuote.RushOrderPrice;
 
             return basePrice + drawPrice + surfacePrice + shippingPrice;
-        }
+        }*/
     }
 }

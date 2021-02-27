@@ -71,6 +71,12 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 }
             }
 
+            // Set the QuotePrice
+            DeskQuote.QuotePrice = DeskQuote.getQuoteTotal(_context);
+
+            // Set the QuoteDate
+            DeskQuote.QuoteDate = DeskQuote.QuoteDate;
+
             return RedirectToPage("./Index");
         }
 

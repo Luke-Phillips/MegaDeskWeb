@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MegaDeskWeb.Migrations
 {
     [DbContext(typeof(MegaDeskWebContext))]
-    [Migration("20210226021831_BlankSlate3")]
-    partial class BlankSlate3
+    [Migration("20210227153247_QuotePriceSimplified")]
+    partial class QuotePriceSimplified
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,9 +71,6 @@ namespace MegaDeskWeb.Migrations
 
                     b.Property<int>("RushOrderOptionId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("RushOrderPrice")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("DeskQuoteId");
 

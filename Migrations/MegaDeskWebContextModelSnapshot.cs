@@ -70,9 +70,6 @@ namespace MegaDeskWeb.Migrations
                     b.Property<int>("RushOrderOptionId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("RushOrderPrice")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("DeskQuoteId");
 
                     b.HasIndex("DeskId");

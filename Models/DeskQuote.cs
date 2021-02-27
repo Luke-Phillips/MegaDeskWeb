@@ -1,10 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-/*using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
 
 namespace MegaDeskWeb.Models
 {
@@ -32,8 +28,6 @@ namespace MegaDeskWeb.Models
         [Display(Name = "Customer Name")]
         public string CustomerName { get; set; }
 
-        public decimal RushOrderPrice { get; set; }
-
         [Display(Name = "Quote Price")]
         [DataType(DataType.Currency)]
         public decimal QuotePrice { get; set; }
@@ -43,116 +37,60 @@ namespace MegaDeskWeb.Models
 
         [Display(Name = "Rush Order Option")]
         public RushOrderOption RushOrderOption { get; set; }
-    }
-}
 
-/*
-        //Call the quote price caculation
-        public decimal QuotePrice
+        // Determine the surface price
+        private decimal getSurfacePrice(MegaDeskWeb.Data.MegaDeskWebContext context)
         {
-            get
+            // Access the RushOrderData to get the data
+            IQueryable<DesktopSurfaceMaterial> material = from m in context.DesktopSurfaceMaterial
+                                                          where m.DesktopSurfaceMaterialId == Desk.DesktopSurfaceMaterialId
+                                                          select m;
+            // Save result
+            decimal materialCost = material.ToList<DesktopSurfaceMaterial>()[0].Cost;
+
+            // On the top of that + surface are for 1 dollar for every over 1000
+            decimal extraCost = Desk.SurfaceArea > DeskQuote.MAX_FREE_SURFACE_AREA ?
+                Desk.SurfaceArea - DeskQuote.MAX_FREE_SURFACE_AREA : 0;
+
+            return materialCost + extraCost;
+        }
+
+        // Determine the rush order Price
+        private decimal getRushOrderPrice(MegaDeskWeb.Data.MegaDeskWebContext context)
+        {
+            // Access the RushOrderData to get the data
+            IQueryable<RushOrderOption> rushOrderQuery = from m in context.RushOrderOption
+                                                         where m.RushOrderOptionId == RushOrderOptionId
+                                                         select m;
+            // Save the result to a list
+            RushOrderOption rushOrderResult = rushOrderQuery.ToList<RushOrderOption>()[0];
+
+            // By default to the smallest value
+            decimal rushPrice = rushOrderResult.CostSmall;
+
+            // Get the aread to determine the cost based size
+            if (Desk.SurfaceArea > 1000 && Desk.SurfaceArea <= 2000)
             {
-                // If quote price has not been set, calculate, set,
-                // and return it
-                if (quotePrice == -1)
-                    quotePrice = calculateQuotePrice();
-
-                return quotePrice;
+                rushPrice = rushOrderResult.CostMedium;
             }
-            set { }
+            else if (Desk.SurfaceArea > 2000)
+            {
+                rushPrice = rushOrderResult.CostSmall;
+            }
+
+            return rushPrice;
         }
 
-        private decimal quotePrice = -1;
-
-        //Default Contructor
-        public DeskQuote()
+        // Determine the quote price of the quoteCreated
+        public decimal getQuoteTotal(MegaDeskWeb.Data.MegaDeskWebContext context)
         {
-            CustomerName = "anonymous";
-            Shipping = Shipping.NoRush;
-            Desk = new Desk();
-            QuoteDate = DateTime.Today;
-        }
-
-        //No Default Contructor to set up values needed
-        public DeskQuote(string customerName, RushOrderOption rushOrderOption, Desk desk, DateTime date)
-        {
-            CustomerName = customerName;
-            Shipping = rushOrderOption;
-            Desk = desk;
-            QuoteDate = date;
-            ShippingPrice = getShippingPrice();
-        }
-
-        /// <summary>
-        /// Caculate the price of the Quote
-        /// </summary>
-        /// <returns></returns>
-        private decimal calculateQuotePrice()
-        {
+            // Set some base prices to use in the quote
             decimal basePrice = BASE_PRICE;
+            decimal drawerPrice = Desk.NumberOfDrawers * DRAWER_PRICE;
+            decimal surfacePrice = getSurfacePrice(context);
+            decimal rushOrderPrice = getRushOrderPrice(context);
 
-            return basePrice + getDrawersPrice() + getSurfaceAreaPrice()
-                   + getMaterialPrice() + ShippingPrice;
-        }
-
-        //Get the Drawer Price
-        private decimal getDrawersPrice()
-        {
-            return DRAWER_PRICE * Desk.NumberOfDrawers;
-        }
-
-        //Get the surface Price
-        private decimal getSurfaceAreaPrice()
-        {
-            return Desk.SurfaceArea > MAX_FREE_SURFACE_AREA ? Desk.SurfaceArea - MAX_FREE_SURFACE_AREA : 0;
-        }
-
-        //Get the Material Price
-        private decimal getMaterialPrice()
-        {
-            // Calculate Surface material price
-            switch (Desk.SurfaceMaterial)
-            {
-                case DesktopSurfaceMaterial.Pine:
-                    return 50;
-                case DesktopSurfaceMaterial.Laminate:
-                    return 100;
-                case DesktopSurfaceMaterial.Veneer:
-                    return 125;
-                case DesktopSurfaceMaterial.Oak:
-                    return 200;
-                case DesktopSurfaceMaterial.Rosewood:
-                    return 300;
-                default:
-                    return 0;
-            }
-        }
-
-        //Get the Shipping Price
-        private decimal getShippingPrice()
-        {
-            *//*  
-            Shipping Price Array Visualization Default Price
-
-            |Shipping |     Size of Desk (in^2)           |
-            |---------|-----------------------------------|
-            |         |    0-1000 | 1001-2000 | 2001-inf  |
-            |---------|-----------+-----------|-----------|
-            | 3 Day   |    $ 60   |    $ 70   |    $ 80   |
-            | 5 Day   |    $ 40   |    $ 50   |    $ 60   |
-            | 7 Day   |    $ 30   |    $ 35   |    $ 40   |
-*//*
-            int[,] shippingPrices;
-
-            //call the methodo to read the file
-            var shippingFilename = @"rushFile.txt";
-            shippingPrices = ReadFileHelper.UpdateRushPrices(shippingFilename);
-
-            int rushIndex = (int)Shipping;
-            int sizeIndex = (int)Desk.SurfaceArea > 2000 ? 2 : ((int)(Desk.SurfaceArea - 1) / 1000);
-
-            return shippingPrices[rushIndex, sizeIndex];
+            return basePrice + drawerPrice + surfacePrice + rushOrderPrice;
         }
     }
 }
-*/
