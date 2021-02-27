@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MegaDeskWeb.Data;
 using MegaDeskWeb.Models;
 
 namespace MegaDeskWeb.Pages.DeskQuotes
@@ -59,8 +57,9 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             // Set the QuotePrice
             DeskQuote.QuotePrice = DeskQuote.getQuoteTotal(_context);
 
-            /*// Set the QuoteDate
-            DeskQuote.QuoteDate = DeskQuote.QuoteDate;*/
+            Console.WriteLine("--------------------Quote Date: " + DeskQuote.QuoteDate + "--------------------");           
+            // Set the QuoteDate
+            DeskQuote.QuoteDate = DeskQuote.QuoteDate;
 
             _context.Attach(DeskQuote).State = EntityState.Modified;
 

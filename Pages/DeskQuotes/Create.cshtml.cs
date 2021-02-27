@@ -38,10 +38,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             // Set the QuotePrice
             DeskQuote.QuotePrice = DeskQuote.getQuoteTotal(_context);            
 
-            Console.WriteLine("on post");
             if (!ModelState.IsValid)
             {
-                Console.WriteLine("model state is not valid");
                 return Page();
             }
 
