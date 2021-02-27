@@ -53,6 +53,15 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                 return Page();
             }
 
+            // Set the Surface Area
+            DeskQuote.Desk.setSurfaceArea();
+
+            // Set the QuotePrice
+            DeskQuote.QuotePrice = DeskQuote.getQuoteTotal(_context);
+
+            /*// Set the QuoteDate
+            DeskQuote.QuoteDate = DeskQuote.QuoteDate;*/
+
             _context.Attach(DeskQuote).State = EntityState.Modified;
 
             try
@@ -70,12 +79,6 @@ namespace MegaDeskWeb.Pages.DeskQuotes
                     throw;
                 }
             }
-
-            // Set the QuotePrice
-            DeskQuote.QuotePrice = DeskQuote.getQuoteTotal(_context);
-
-            // Set the QuoteDate
-            DeskQuote.QuoteDate = DeskQuote.QuoteDate;
 
             return RedirectToPage("./Index");
         }
