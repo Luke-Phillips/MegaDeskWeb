@@ -35,14 +35,14 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             if (!string.IsNullOrEmpty(Material))
             {
                 Console.WriteLine("DeskQuotes is: " + DeskQuotes.ToString());
-                //Console.WriteLine("DeskQuotes is: " + DeskQuotes.ToString());
                 DeskQuotes = DeskQuotes.Where(d => d.Desk.DesktopSurfaceMaterial.Name == Material).ToList();
             }
 
             IQueryable<string> materialQuery = from m in _context.DesktopSurfaceMaterial
                                                select m.Name;
-
-            Materials = new SelectList(await materialQuery.Distinct().ToListAsync());
+            
+            ViewData["DesktopSurfaceMaterialId"] = new SelectList(_context.Set<DesktopSurfaceMaterial>(), "DesktopSurfaceMaterialId", "Name");
+            //Materials = new SelectList(await materialQuery.Distinct().ToListAsync());
         }
     }
 }
